@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="movie.project.mapper.ApiMapper">
+    <insert id="saveAll" parameterType="java.util.List">
+        INSERT INTO movie(id, title, openDt, `rank`)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id}, #{item.title}, #{item.openDt}, #{item.rank})
+        </foreach>
+    </insert>
+</mapper>
